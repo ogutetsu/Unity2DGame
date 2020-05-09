@@ -12,6 +12,10 @@ public class Player : MonoBehaviour
     private LayerMask _groundLayer;
 
     private bool _resetJump = false;
+
+    [SerializeField]
+    private float _speed = 5.0f;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +28,7 @@ public class Player : MonoBehaviour
         var move = Movement();
 
 
-        _rigid.velocity = new Vector2(move, _rigid.velocity.y);
+        _rigid.velocity = new Vector2(move * _speed, _rigid.velocity.y);
     }
 
     
