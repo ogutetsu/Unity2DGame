@@ -15,11 +15,13 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private float _speed = 5.0f;
-    
+
+    private PlayerAnimation _playerAnimation;
     // Start is called before the first frame update
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
+        _playerAnimation = GetComponent<PlayerAnimation>();
     }
 
     // Update is called once per frame
@@ -27,11 +29,13 @@ public class Player : MonoBehaviour
     {
         var move = Movement();
 
-
         _rigid.velocity = new Vector2(move * _speed, _rigid.velocity.y);
+        
+        _playerAnimation.Move(move);
+        
     }
 
-    
+   
 
     private float Movement()
     {
