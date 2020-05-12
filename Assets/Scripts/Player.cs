@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private LayerMask _groundLayer;
 
     private bool _resetJump = false;
+    private bool _grounded = false;
 
     [SerializeField]
     private float _speed = 5.0f;
@@ -43,13 +44,14 @@ public class Player : MonoBehaviour
     private float Movement()
     {
         float move = Input.GetAxis("Horizontal");
-
+        _grounded = IsGrounded();
         Flip(move);
 
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && _grounded)
         {
             _rigid.velocity = new Vector2(_rigid.velocity.x, _jumpforce);
             StartCoroutine(ResetJumpNeeded());
+            _playerAnimation.Jump(true);
         }
 
         return move;
@@ -73,7 +75,10 @@ public class Player : MonoBehaviour
         if (hitInfo.collider != null)
         {
             if (_resetJump == false)
+            {
+                _playerAnimation.Jump(false);
                 return true;
+            }
         }
         return false;
     }
