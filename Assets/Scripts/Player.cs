@@ -17,11 +17,14 @@ public class Player : MonoBehaviour
     private float _speed = 5.0f;
 
     private PlayerAnimation _playerAnimation;
+
+    private SpriteRenderer _sprite;
     // Start is called before the first frame update
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
         _playerAnimation = GetComponent<PlayerAnimation>();
+        _sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -41,6 +44,8 @@ public class Player : MonoBehaviour
     {
         float move = Input.GetAxis("Horizontal");
 
+        Flip(move);
+
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             _rigid.velocity = new Vector2(_rigid.velocity.x, _jumpforce);
@@ -48,6 +53,18 @@ public class Player : MonoBehaviour
         }
 
         return move;
+    }
+
+    private void Flip(float move)
+    {
+        if (move > 0)
+        {
+            _sprite.flipX = false;
+        }
+        else if (move < 0)
+        {
+            _sprite.flipX = true;
+        }
     }
 
     bool IsGrounded()
