@@ -36,6 +36,11 @@ public class Player : MonoBehaviour
         _rigid.velocity = new Vector2(move * _speed, _rigid.velocity.y);
         
         _playerAnimation.Move(move);
+
+        if (Input.GetMouseButtonDown(0) && IsGrounded() == true)
+        {
+            _playerAnimation.Attack();
+        }
         
     }
 
