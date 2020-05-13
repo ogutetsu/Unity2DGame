@@ -20,12 +20,17 @@ public class Player : MonoBehaviour
     private PlayerAnimation _playerAnimation;
 
     private SpriteRenderer _sprite;
+
+    [SerializeField]
+    private SpriteRenderer _swordArcSprite;
+    
     // Start is called before the first frame update
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
         _playerAnimation = GetComponent<PlayerAnimation>();
         _sprite = GetComponentInChildren<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
@@ -67,10 +72,21 @@ public class Player : MonoBehaviour
         if (move > 0)
         {
             _sprite.flipX = false;
+            _swordArcSprite.flipX = false;
+            _swordArcSprite.flipY = false;
+            Vector3 swordArcPos = _swordArcSprite.transform.localPosition;
+            swordArcPos.x = 1.01f;
+            _swordArcSprite.transform.localPosition = swordArcPos;
         }
         else if (move < 0)
         {
             _sprite.flipX = true;
+            
+            _swordArcSprite.flipX = true;
+            _swordArcSprite.flipY = true;
+            Vector3 swordArcPos = _swordArcSprite.transform.localPosition;
+            swordArcPos.x = -1.01f;
+            _swordArcSprite.transform.localPosition = swordArcPos;
         }
     }
 
