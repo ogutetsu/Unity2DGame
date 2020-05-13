@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator _anim;
+
+    [SerializeField]
+    private Animator _swordAnim;
     
     // Start is called before the first frame update
     void Start()
@@ -26,5 +29,6 @@ public class PlayerAnimation : MonoBehaviour
     public void Attack()
     {
         _anim.SetTrigger("Attack");
+        _swordAnim.SetTrigger("SwordAnimation");
     }
 }
