@@ -7,13 +7,18 @@ public class MossGiant : Enemy
 {
 
     private Vector3 _currentTarget;
-    
+    [SerializeField]
+    private Animator _anim;
     private void Start()
     {
     }
 
     private void Update()
     {
+        if (_anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+            return;
+        }
         Movement();
     }
 
