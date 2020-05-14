@@ -5,9 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public int health;
-    public int speed;
-    public int gems;
+    protected int health;
+    protected int speed;
+    protected int gems;
 
     public void Attack()
     {
