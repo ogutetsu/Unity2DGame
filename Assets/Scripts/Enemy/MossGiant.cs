@@ -9,6 +9,8 @@ public class MossGiant : Enemy
     private Vector3 _currentTarget;
     [SerializeField]
     private Animator _anim;
+    [SerializeField]
+    private SpriteRenderer _mossSprite;
     private void Start()
     {
     }
@@ -19,11 +21,22 @@ public class MossGiant : Enemy
         {
             return;
         }
+
+        
         Movement();
     }
 
     private void Movement()
     {
+        if (_currentTarget == pointA.position)
+        {
+            _mossSprite.flipX = true;
+        }
+        else
+        {
+            _mossSprite.flipX = false;
+        }
+        
         if (transform.position == pointA.position)
         {
             _currentTarget = pointB.position;
@@ -32,7 +45,7 @@ public class MossGiant : Enemy
         else if (transform.position == pointB.position)
         {
             _currentTarget = pointA.position;
-            _anim.SetTrigger("Idle");
+            _anim.SetTrigger("Idle");            
         }
 
         transform.position = Vector3.MoveTowards(transform.position,
