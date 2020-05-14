@@ -5,11 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
+    [SerializeField]
     protected int health;
+    [SerializeField]
     protected int speed;
+    [SerializeField]
     protected int gems;
 
-    public void Attack()
+    public virtual void Attack()
     {
         
     }
