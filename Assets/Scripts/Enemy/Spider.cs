@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spider : Enemy
+public class Spider : Enemy, IDamageable
 {
 
     // Start is called before the first frame update
@@ -21,4 +21,9 @@ public class Spider : Enemy
         Movement();
     }
 
+    public int Health { get; set; }
+    public void Damage(int damageAmount)
+    {
+        throw new NotImplementedException();
+    }
 }

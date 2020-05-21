@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skeleton : Enemy
+public class Skeleton : Enemy, IDamageable
 {
     // Start is called before the first frame update
     void Start()
@@ -19,5 +19,11 @@ public class Skeleton : Enemy
         }
 
         Movement();
+    }
+
+    public int Health { get; set; }
+    public void Damage(int damageAmount)
+    {
+        
     }
 }

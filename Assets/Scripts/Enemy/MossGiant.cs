@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MossGiant : Enemy
+public class MossGiant : Enemy, IDamageable
 {
     
     private void Start()
@@ -20,4 +20,9 @@ public class MossGiant : Enemy
         Movement();
     }
 
+    public int Health { get; set; }
+    public void Damage(int damageAmount)
+    {
+        
+    }
 }
