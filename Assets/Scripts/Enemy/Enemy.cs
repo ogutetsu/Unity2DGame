@@ -21,7 +21,8 @@ public class Enemy : MonoBehaviour
     protected Animator anim;
     [FormerlySerializedAs("_sprite")] [SerializeField]
     protected SpriteRenderer sprite;
-    
+
+    protected bool isHit = false;
     
     public virtual void Movement()
     {
@@ -45,8 +46,11 @@ public class Enemy : MonoBehaviour
             anim.SetTrigger("Idle");            
         }
 
-        transform.position = Vector3.MoveTowards(transform.position,
-            currentTarget, speed * Time.deltaTime);
+        if (isHit == false)
+        {
+            transform.position = Vector3.MoveTowards(transform.position,
+                currentTarget, speed * Time.deltaTime);
+        }
         
     }
     
