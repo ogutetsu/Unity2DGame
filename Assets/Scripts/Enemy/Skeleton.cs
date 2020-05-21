@@ -7,7 +7,7 @@ public class Skeleton : Enemy, IDamageable
     // Start is called before the first frame update
     void Start()
     {
-        
+        Health = base.health;
     }
 
     // Update is called once per frame
@@ -24,6 +24,12 @@ public class Skeleton : Enemy, IDamageable
     public int Health { get; set; }
     public void Damage(int damageAmount)
     {
+        Health-=damageAmount;
+
+        if (Health < 1)
+        {
+            Destroy(this.gameObject);
+        }
         
     }
 }
