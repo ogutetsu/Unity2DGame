@@ -9,6 +9,8 @@ public class Spider : Enemy, IDamageable
     // Start is called before the first frame update
     void Start()
     {
+        base.Start();
+        Health = base.health;
     }
 
     private void Update()

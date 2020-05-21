@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -23,7 +24,14 @@ public class Enemy : MonoBehaviour
     protected SpriteRenderer sprite;
 
     protected bool isHit = false;
-    
+
+    protected Player player;
+
+    protected void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
+
     public virtual void Movement()
     {
         if (currentTarget == pointA.position)
@@ -51,7 +59,14 @@ public class Enemy : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position,
                 currentTarget, speed * Time.deltaTime);
         }
-        
+
+        float distance = Vector3.Distance(transform.localPosition, player.transform.localPosition);
+        if (distance > 2.0f)
+        {
+            isHit = false;
+            anim.SetBool("InCombat", false);
+        }
+
     }
     
 

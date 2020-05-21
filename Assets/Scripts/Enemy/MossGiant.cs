@@ -6,8 +6,10 @@ using UnityEngine;
 public class MossGiant : Enemy, IDamageable
 {
     
-    private void Start()
+    void Start()
     {
+        base.Start();
+        Health = base.health;
     }
 
     private void Update()
