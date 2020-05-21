@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    private bool _canDamage = true;
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Hit: " + other.name);
@@ -13,8 +14,20 @@ public class Attack : MonoBehaviour
 
         if (damageable != null)
         {
-            damageable.Damage(1);
+            if (_canDamage == true)
+            {
+                damageable.Damage(1);
+                _canDamage = false;
+                StartCoroutine(ResetDamage());
+            }
         }
-        
     }
+
+    IEnumerator ResetDamage()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _canDamage = true;
+    }
+    
+    
 }
