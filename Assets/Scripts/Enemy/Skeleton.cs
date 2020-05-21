@@ -25,7 +25,7 @@ public class Skeleton : Enemy, IDamageable
     public void Damage(int damageAmount)
     {
         Health-=damageAmount;
-
+        anim.SetTrigger("Hit");
         if (Health < 1)
         {
             Destroy(this.gameObject);
