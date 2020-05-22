@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     private Rigidbody2D _rigid;
 
@@ -110,5 +110,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         _resetJump = false;
     }
-    
+
+    public int Health { get; set; }
+    public void Damage(int damageAmount)
+    {
+        Debug.Log("Player Damage");
+    }
 }
