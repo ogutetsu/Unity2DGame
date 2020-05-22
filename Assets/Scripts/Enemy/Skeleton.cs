@@ -20,6 +20,17 @@ public class Skeleton : Enemy, IDamageable
         }
 
         Movement();
+
+        Vector3 direction = player.transform.localPosition - transform.localPosition;
+        if (direction.x > 0 && anim.GetBool("InCombat") == true)
+        {
+            sprite.flipX = false;
+        }
+        else if (direction.x < 0 && anim.GetBool("InCombat") == true)
+        {
+            sprite.flipX = true;
+        }
+
     }
 
 
