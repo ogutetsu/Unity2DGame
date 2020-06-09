@@ -38,6 +38,10 @@ public class Spider : Enemy, IDamageable
     public int Health { get; set; }
     public void Damage(int damageAmount)
     {
-        throw new NotImplementedException();
+        Health--;
+        if (Health < 1)
+        {
+            Destroy(gameObject);
+        }
     }
 }
