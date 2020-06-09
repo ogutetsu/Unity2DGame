@@ -28,6 +28,10 @@ public class Spider : Enemy, IDamageable
         //base.Movement();
     }
 
+    public void Attack()
+    {
+        
+    }
 
     public int Health { get; set; }
     public void Damage(int damageAmount)
