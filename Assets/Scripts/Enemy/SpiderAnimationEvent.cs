@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class SpiderAnimationEvent : MonoBehaviour
 {
+
+    [SerializeField]
+    private Spider _spider;
+    
     private void Start()
     {
         
@@ -12,6 +16,6 @@ public class SpiderAnimationEvent : MonoBehaviour
 
     public void Fire()
     {
-        Debug.Log("Spider fire");
+        _spider.Attack();
     }
 }

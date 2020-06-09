@@ -6,6 +6,8 @@ using UnityEngine;
 public class Spider : Enemy, IDamageable
 {
 
+    
+    public GameObject acidEffectPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,7 @@ public class Spider : Enemy, IDamageable
 
     public void Attack()
     {
-        
+        Instantiate(acidEffectPrefab, transform.position, Quaternion.identity);
     }
 
     public int Health { get; set; }
