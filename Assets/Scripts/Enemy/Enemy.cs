@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
     [FormerlySerializedAs("_sprite")] [SerializeField]
     protected SpriteRenderer sprite;
 
+    protected bool isDead = false;
+    
     protected bool isHit = false;
 
     protected Player player;
@@ -34,6 +36,8 @@ public class Enemy : MonoBehaviour
 
     public virtual void Movement()
     {
+        if (isDead) return;
+        
         if (currentTarget == pointA.position)
         {
             sprite.flipX = true;
