@@ -23,6 +23,12 @@ public class Spider : Enemy, IDamageable
         Movement();
     }
 
+    public override void Movement()
+    {
+        //base.Movement();
+    }
+
+
     public int Health { get; set; }
     public void Damage(int damageAmount)
     {
