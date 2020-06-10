@@ -10,6 +10,11 @@ public class Shop : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            Player player = other.GetComponent<Player>();
+            if (player != null)
+            {
+                UIManager.Instance.OpenShop(player.diamonds);
+            }
             shopPanel.SetActive(true);
         }
     }
