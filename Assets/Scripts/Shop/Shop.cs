@@ -13,4 +13,12 @@ public class Shop : MonoBehaviour
             shopPanel.SetActive(true);
         }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            shopPanel.SetActive(false);
+        }
+    }
 }
