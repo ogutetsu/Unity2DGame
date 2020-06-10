@@ -43,6 +43,7 @@ public class Spider : Enemy, IDamageable
         {
             isDead = true;
             anim.SetTrigger("Death");
+            SpawnDiamond();
         }
     }
 }

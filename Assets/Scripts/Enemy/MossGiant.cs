@@ -33,6 +33,7 @@ public class MossGiant : Enemy, IDamageable
         {
             isDead = true;
             anim.SetTrigger("Death");
+            SpawnDiamond();
         }
     }
 }

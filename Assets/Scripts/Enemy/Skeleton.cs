@@ -35,6 +35,7 @@ public class Skeleton : Enemy, IDamageable
         {
             isDead = true;
             anim.SetTrigger("Death");
+            SpawnDiamond();
         }
         
     }

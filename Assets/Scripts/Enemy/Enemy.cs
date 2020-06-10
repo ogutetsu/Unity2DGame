@@ -6,6 +6,8 @@ using UnityEngine.Serialization;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField]
+    protected GameObject DiamondPrefab;
 
     [SerializeField]
     protected int health;
@@ -81,6 +83,12 @@ public class Enemy : MonoBehaviour
             sprite.flipX = true;
         }
 
+    }
+
+    protected void SpawnDiamond()
+    {
+        GameObject diamond = Instantiate(DiamondPrefab, transform.position, Quaternion.identity) as GameObject;
+        diamond.GetComponent<Diamond>().gems = gems;
     }
     
 
