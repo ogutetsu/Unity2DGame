@@ -27,9 +27,21 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void SelectItem()
+    public void SelectItem(int item)
     {
-        Debug.Log("SelectItem");
+        Debug.Log("SelectItem" + item);
+        switch (item)
+        {
+            case 0:
+                UIManager.Instance.UpdateShopSelection(377);
+                break;
+            case 1:
+                UIManager.Instance.UpdateShopSelection(266);
+                break;
+            case 2:
+                UIManager.Instance.UpdateShopSelection(160);
+                break;
+        }
     }
     
     
