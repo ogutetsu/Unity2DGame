@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IDamageable
 {
+
+    public int diamonds;
+    
     private Rigidbody2D _rigid;
 
     [SerializeField]
