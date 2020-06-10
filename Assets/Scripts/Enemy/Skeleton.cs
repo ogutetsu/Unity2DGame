@@ -27,6 +27,7 @@ public class Skeleton : Enemy, IDamageable
     public int Health { get; set; }
     public void Damage(int damageAmount)
     {
+        if (isDead) return;
         Health-=damageAmount;
         anim.SetTrigger("Hit");
         isHit = true;
