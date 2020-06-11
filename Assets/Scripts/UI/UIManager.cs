@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
 
     public Text playerGemCountText;
     public Image selectionImg;
+    public Text gemCount;
 
     public void OpenShop(int gemCount)
     {
@@ -27,6 +28,11 @@ public class UIManager : MonoBehaviour
         selectionImg.rectTransform.anchoredPosition = new Vector2(selectionImg.rectTransform.anchoredPosition.x, yPos);  
     }
 
+    public void UpdateGemCount(int count)
+    {
+        gemCount.text = count.ToString();
+    }
+    
     private void Awake()
     {
         _instance = this;
