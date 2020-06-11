@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     public Text playerGemCountText;
     public Image selectionImg;
     public Text gemCount;
+    public Image[] healthBar;
 
     public void OpenShop(int gemCount)
     {
@@ -32,6 +33,18 @@ public class UIManager : MonoBehaviour
     {
         gemCount.text = count.ToString();
     }
+
+    public void UpdateLives(int liveRemaining)
+    {
+        for (int i = 0; i <= liveRemaining; i++)
+        {
+            if (i == liveRemaining)
+            {
+                healthBar[i].enabled = false;
+            }
+        }
+    }
+    
     
     private void Awake()
     {

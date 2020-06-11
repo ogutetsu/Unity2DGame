@@ -33,7 +33,7 @@ public class Player : MonoBehaviour, IDamageable
         _rigid = GetComponent<Rigidbody2D>();
         _playerAnimation = GetComponent<PlayerAnimation>();
         _sprite = GetComponentInChildren<SpriteRenderer>();
-        
+        Health = 4;
     }
 
     // Update is called once per frame
@@ -117,7 +117,16 @@ public class Player : MonoBehaviour, IDamageable
     public int Health { get; set; }
     public void Damage(int damageAmount)
     {
-        Debug.Log("Player Damage");
+        if (Health < 1)
+        {
+            return;
+        }
+        Health--;
+        UIManager.Instance.UpdateLives(Health);
+        if (Health < 1)
+        {
+            _playerAnimation.Death();
+        }
     }
 
     public void AddGems(int amount)
